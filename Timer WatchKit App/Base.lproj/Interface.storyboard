@@ -1,15 +1,30 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11134" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="17156" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="17035"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Timer_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <timer width="126" height="27" alignment="left" textAlignment="center" id="qcz-Hi-bEN"/>
+                        <button width="1" alignment="left" title="START" id="fH8-o4-XlL">
+                            <connections>
+                                <action selector="myTimeraction" destination="AgC-eL-Hgc" id="90s-9e-Lgb"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="myTimer" destination="qcz-Hi-bEN" id="vWA-QD-WjP"/>
+                        <outlet property="timerButton" destination="fH8-o4-XlL" id="4ai-MW-6SS"/>
+                    </connections>
+                </controller>
             </objects>
+            <point key="canvasLocation" x="135" y="72"/>
         </scene>
     </scenes>
 </document>
