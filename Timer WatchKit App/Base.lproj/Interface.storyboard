@@ -11,16 +11,34 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Timer_WatchKit_App" customModuleProvider="target">
                     <items>
+                        <group width="136" height="27" alignment="left" id="8T0-1m-udB">
+                            <items>
+                                <label width="39" height="23" alignment="center" text="Total" id="bR1-xD-tV0">
+                                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </label>
+                                <timer width="63" height="18" alignment="right" textAlignment="left" id="Fxh-wN-UAn">
+                                    <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </timer>
+                            </items>
+                        </group>
                         <timer width="126" height="27" alignment="left" textAlignment="center" id="qcz-Hi-bEN"/>
-                        <button width="1" alignment="left" title="START" id="fH8-o4-XlL">
+                        <button width="1" height="35" alignment="left" title="START" id="fH8-o4-XlL">
+                            <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="myTimeraction" destination="AgC-eL-Hgc" id="90s-9e-Lgb"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="RESET" id="o70-d6-s8k">
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="resetTimertapped" destination="AgC-eL-Hgc" id="Jw3-vI-1yw"/>
                             </connections>
                         </button>
                     </items>
                     <connections>
                         <outlet property="myTimer" destination="qcz-Hi-bEN" id="vWA-QD-WjP"/>
                         <outlet property="timerButton" destination="fH8-o4-XlL" id="4ai-MW-6SS"/>
+                        <outlet property="totalTimercount" destination="Fxh-wN-UAn" id="N5g-TO-bPJ"/>
                     </connections>
                 </controller>
             </objects>

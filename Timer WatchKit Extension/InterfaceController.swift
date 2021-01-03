@@ -15,9 +15,12 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var myTimer: WKInterfaceTimer!
     @IBOutlet weak var timerButton: WKInterfaceButton!
     
+    @IBOutlet weak var totalTimercount: WKInterfaceTimer!
     var isTimerStarted = false
     var startTime = Date()
     var elapsedTime: TimeInterval = 0.0
+    
+    var totalStarted: Bool = false
     override func awake(withContext context: Any?) {
         // Configure interface objects here.
     }
@@ -39,9 +42,9 @@ class InterfaceController: WKInterfaceController {
             if isTimerStarted {
                 startTime = Date()
                 timerButton.setTitle("STOP")
-                //myTimer.setDate(Date())
-                myTimer.setDate(Date(timeIntervalSinceNow: elapsedTime))
-                myTimer.start()
+                setTimer(timer: myTimer, interval: elapsedTime)
+                setTimer(timer: totalTimercount, interval: elapsedTime)
+                totalStarted = true
             } else {
                 let stoppedTime = Date()
                 elapsedTime -= stoppedTime.timeIntervalSince(startTime)
@@ -49,6 +52,27 @@ class InterfaceController: WKInterfaceController {
                 myTimer.stop()
             }
         }
+    func setTimer(timer: WKInterfaceTimer, interval: TimeInterval){
+        if totalStarted && timer == totalTimercount {
+            return
+        }
+        timer.setDate(Date(timeIntervalSinceNow: interval))
+        timer.start()
+    }
+    
+    @IBAction func resetTimertapped() {
+        isTimerStarted = false
+        startTime = Date()
+        elapsedTime = 0.0
+        totalStarted = false
+        timerButton.setTitle("START")
+        myTimer.setDate(startTime)
+        myTimer.stop()
+        totalTimercount.setDate(startTime)
+        totalTimercount.stop()
+    }
+    
+    
     }
     
     
